@@ -8,6 +8,7 @@ import Travel from "../pages/Travel"
 import Login from "../pages/Login"
 import TravelParticipants from "../pages/TravelParticipants"
 import DrinkParticipants from "../pages/DrinkParticipants"
+import RandomParticipants from "../pages/RandomParticipants"
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/drink/participants" element={<DrinkParticipants />} />
       <Route path="/travel" element={<Travel />} />
       <Route path="/travel/participants" element={<TravelParticipants />} />
+      <Route path="/random/participants" element={<RandomParticipants />} />
       <Route path="/login" element={<Login />} />
     </Routes>
   )
