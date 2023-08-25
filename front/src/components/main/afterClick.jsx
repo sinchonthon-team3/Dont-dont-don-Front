@@ -1,9 +1,14 @@
 import { styled } from "styled-components"
 import { ReactComponent as Image } from "../../asset/img/clickme.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import theme from "../../styles/theme"
 
 function AfterClick() {
+  const navigate = useNavigate()
+
+  const goViewDon = () => {
+    navigate("/view")
+  }
   return (
     <ClickMe>
       <ImageContainer>
@@ -15,7 +20,7 @@ function AfterClick() {
           하러가기
         </Link>
       </DoDonButton>
-      <ViewDonButton>
+      <ViewDonButton onClick={goViewDon}>
         그동안의
         <DonText>{` DON`}</DonText>
       </ViewDonButton>
