@@ -1,8 +1,33 @@
 import { styled, keyframes } from "styled-components"
 import theme from "../styles/theme"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { request } from "../util/axios"
+import useInput from "./../hooks/useInput"
+import { useSetRecoilState } from "recoil"
+import user from "./../store/atom/user"
 
 function Login() {
+  const [id, setId] = useInput("")
+  const [pw, setPw] = useInput("")
+
+  const setUserInfo = useSetRecoilState(user)
+  const navigate = useNavigate()
+
+  const onLogin = async () => {
+    try {
+      const response = await request("post", "/api/login", { id, pw })
+
+      setUserInfo({
+        nickname: response.nickname,
+        access: response.access,
+      })
+
+      navigate("/main")
+    } catch (error) {
+      console.log(error)
+      alert(error.message)
+    }
+  }
   return (
     <Container>
       <CircleImg />
@@ -15,14 +40,14 @@ function Login() {
         <InputForm>
           <InputContainer>
             <InputLabel htmlFor="id">ID</InputLabel>
-            <Input type="text" id="id" required />
+            <Input type="text" id="id" value={id} onChange={setId} required />
           </InputContainer>
           <InputContainer>
             <InputLabel htmlFor="pw">PW</InputLabel>
-            <Input type="password" id="pw" required />
+            <Input type="password" id="pw" value={pw} onChange={setPw} required />
           </InputContainer>
         </InputForm>
-        <LoginButton>로그인하기</LoginButton>
+        <LoginButton onClick={onLogin}>로그인하기</LoginButton>
         <OptionContainer>
           <OptionButton>
             <Link to="/signup" style={{ textDecoration: "none", color: `${theme.colors.blue}` }}>

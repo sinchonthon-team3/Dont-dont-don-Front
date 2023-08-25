@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { RegEx } from "./../constants/RegEx"
 import SignupInput from "../components/input/signupInput"
 import { useNavigate } from "react-router-dom"
+import { request } from "../util/axios"
 
 function Signup() {
   const {
@@ -15,8 +16,14 @@ function Signup() {
   const navigate = useNavigate()
 
   const onSubmit = async data => {
-    console.log(data)
-    navigate("/login")
+    try {
+      const response = await request("post", "/api/signup", { data })
+      console.log(response)
+
+      navigate("/login")
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   return (
