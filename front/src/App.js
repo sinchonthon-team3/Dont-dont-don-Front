@@ -26,4 +26,6 @@ const AppContainer = styled.div`
   flex: 1;
 
   flex-direction: column;
+
+  max-width: 313px;
 `
