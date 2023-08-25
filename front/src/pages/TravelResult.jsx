@@ -14,9 +14,9 @@ function TravelResult() {
         여행
         <DonText>{` DON`}</DonText>
       </Title>
-      <TotalMoney>N분의 1 정산시 금액: {resultValue.total}원</TotalMoney>
+      <TotalMoney>N분의 1 정산시 금액: {resultValue.default_pay}원</TotalMoney>
       <Section>
-        {resultValue.map((result, idx) => (
+        {resultValue.user.map((result, idx) => (
           <EachResult key={`result${idx}`} eachResult={result} />
         ))}
       </Section>

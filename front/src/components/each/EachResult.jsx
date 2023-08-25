@@ -5,7 +5,7 @@ function EachResult({ eachResult }) {
   return (
     <EachResultContainer>
       <Key>{eachResult.name}</Key>
-      <Value>{eachResult.money}원</Value>
+      <Value>{eachResult.change_pay}원</Value>
     </EachResultContainer>
   )
 }

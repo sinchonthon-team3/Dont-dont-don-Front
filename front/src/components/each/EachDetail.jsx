@@ -18,7 +18,7 @@ function EachDetail({ eachDetail }) {
   useEffect(() => {
     setCurIndex(eachDetail.name)
     setContent(prev => [...prev, <AddtionBox view={addition === 0 ? 0 : 1}>{optionEnum[addition]}</AddtionBox>])
-    setWeight_ids(prev => [...prev, addition])
+    setWeight_ids(prev => [...prev, Number(addition)])
   }, [addition])
 
   useEffect(() => {

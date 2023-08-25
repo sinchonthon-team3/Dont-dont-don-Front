@@ -45,7 +45,7 @@ function TravelDetail() {
     })
 
     const body = {
-      total_price: getTotalAmount,
+      total_price: Number(getTotalAmount),
       user: details.map(detail => {
         return {
           name: detail.name,
@@ -55,7 +55,7 @@ function TravelDetail() {
     }
 
     try {
-      const response = await request("post", "/api/don", body, {
+      const response = await request("post", "/friend/get-distribution-view/", body, {
         Authorization: `Bearer ${userinfo.access}`,
       })
       setTravelResult(response)
