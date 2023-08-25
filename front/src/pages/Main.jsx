@@ -1,12 +1,56 @@
 import { styled } from "styled-components"
+import theme from "../styles/theme"
+import AfterClick from "../components/main/afterClick"
+import BeforeClick from "../components/main/beforeClick"
+import { useRecoilValue } from "recoil"
+import isClick from "../store/atom/isClick"
 
 function Main() {
-  return <Temp>메인화면입니다.</Temp>
+  const isClickstate = useRecoilValue(isClick)
+
+  return (
+    <MainContainer>
+      <Title>{`Don't don't don`}</Title>
+      {isClickstate ? <AfterClick /> : <BeforeClick />}
+      <Blank />
+    </MainContainer>
+  )
 }
 
 export default Main
 
-const Temp = styled.div`
-  font-family: "SpoqaHanSansNeo_Bold", sans-serif;
-  font-size: 30px;
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100vh;
+`
+
+const Title = styled.div`
+  margin-top: 33px;
+  color: ${theme.colors.blue};
+  ${theme.fontstyles.subtitleEng};
+  text-align: center;
+`
+
+const ClickMe = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const Text = styled.div`
+  margin-top: 16px;
+
+  color: ${theme.colors.blue};
+  ${theme.fontstyles.subtitleEng};
+  text-align: center;
+  text-transform: capitalize;
+`
+
+const Blank = styled.div`
+  width: 10px;
+  height: 10px;
 `
