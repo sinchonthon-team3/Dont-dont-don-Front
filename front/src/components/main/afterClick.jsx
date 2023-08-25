@@ -12,8 +12,10 @@ function AfterClick() {
         <Image />
       </ImageContainer>
       <DoDonButton>
-        <DonText>{`DON `}</DonText>
-        하러가기
+        <Link to="/mainmenu" style={{ textDecoration: "none", color: `${theme.colors.black}` }}>
+          <DonText>{`DON `}</DonText>
+          하러가기
+        </Link>
       </DoDonButton>
       <ViewDonButton>
         그동안의

@@ -1,6 +1,7 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
 import Main from "./../pages/Main"
+import MainMenu from "../pages/MainMenu"
 import Signup from "../pages/Signup"
 import Start from "../pages/Start"
 import Login from "../pages/Login"
@@ -23,6 +24,7 @@ function Router() {
 
       <Route path="/main" element={<Main />} />
       <Route path="/main" element={<Main />} />
+      <Route path="/mainmenu" element={<MainMenu />} />
       <Route path="/drink/detail" element={<DrinkDetail />} />
       <Route path="/travel/detail" element={<TravelDetail />} />
       <Route path="/random/detail" element={<RandomDetail />} />
