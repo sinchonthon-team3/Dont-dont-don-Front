@@ -82,6 +82,7 @@ const fontstyles = {
 const colors = {
   white: "#ffffff",
   blue: "#0045FF",
+  blue80per: "rgba(0, 69, 255, 0.80)",
   black: "#102311",
   gray: "#DDDDDD",
   gray40per: "rgba(221, 221, 221, 0.4)",

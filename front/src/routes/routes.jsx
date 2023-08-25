@@ -6,16 +6,18 @@ import Start from "../pages/Start"
 import Drink from "../pages/Drink"
 import Travel from "../pages/Travel"
 import Login from "../pages/Login"
+import TravelParticipants from "../pages/TravelParticipants"
 
 function Router() {
   return (
     <Routes>
-      <Route path="/login" element={<Main />} />
+      <Route path="/main" element={<Main />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<Start />} />
       <Route path="/main" element={<Main />} />
       <Route path="/drink" element={<Drink />} />
       <Route path="/travel" element={<Travel />} />
+      <Route path="/travel/participants" element={<TravelParticipants />} />
       <Route path="/login" element={<Login />} />
     </Routes>
   )
