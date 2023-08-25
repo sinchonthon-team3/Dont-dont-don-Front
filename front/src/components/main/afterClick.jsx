@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import { ReactComponent as Image } from "../../asset/img/clickme.svg"
+import { Link } from "react-router-dom"
 import theme from "../../styles/theme"
 
 function AfterClick() {
