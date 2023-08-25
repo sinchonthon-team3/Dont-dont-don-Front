@@ -18,7 +18,6 @@ import totalAmount from "../store/atom/totalAmount"
 
 import EachRandomAmount from "../components/each/EachRandomAmount"
 import randomResult from "../store/atom/randomresult"
-import { useState } from "react"
 
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, BarController, BarElement, Filler)
 
@@ -38,24 +37,13 @@ function RandomDetail() {
 
   const getRandomResult = useRecoilValue(randomResult)
 
-  const keys = Object.keys(getRandomResult)
-
-  const list = []
-
-  for (let i = 1; i < keys.length; i++) {
-    const key = keys[i]
-    const value = getRandomResult[key]
-
-    console.log(key, value)
-  }
-
-  const labels = [...participant] //x축 기준
+  const labels = [...getRandomResult.user.map(user => user.name)] //x축 기준
 
   const data = {
     labels,
     datasets: [
       {
-        data: [20000, 60000, 4000, 25000],
+        data: getRandomResult.user.map(user => user.change_pay),
         label: "정산금액",
         borderColor: `${theme.colors.blue}`,
         backgroundColor: `${theme.colors.blue80per}`,
@@ -73,7 +61,7 @@ function RandomDetail() {
         <TitleEng>DON</TitleEng>
       </Title>
       <HeadlineContainer>
-        <Headline>N분의1 정산시 금액: {getRandomResult.normal}원</Headline>
+        <Headline>N분의1 정산시 금액: {getRandomResult.default}원</Headline>
       </HeadlineContainer>
       <ChartContainer>
         <Bar options={options} data={data} width="300" height="300" />

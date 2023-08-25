@@ -8,8 +8,6 @@ import isClick from "../store/atom/isClick"
 function Main() {
   const isClickstate = useRecoilValue(isClick)
 
-  localStorage.clear()
-
   return (
     <MainContainer>
       <Title>{`Don't don't don`}</Title>
