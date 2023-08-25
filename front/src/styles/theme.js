@@ -62,12 +62,30 @@ const fontstyles = {
       font-weight: 400;
       line-height: normal;
   `,
+
+  DonButtonKor: `
+        font-family: "SpoqaHanSansNeo", sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+`,
+
+  DonButtonEng: `
+        font-family: "GOTHAM", sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+  `,
 }
 const colors = {
+  white: "#ffffff",
   blue: "#0045FF",
   black: "#102311",
   gray: "#DDDDDD",
   gray40per: "rgba(221, 221, 221, 0.4)",
+  gray60per: "rgba(221, 221, 221, 0.6)",
 }
 
 const theme = {
