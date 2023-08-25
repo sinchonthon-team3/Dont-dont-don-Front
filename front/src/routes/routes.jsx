@@ -5,6 +5,7 @@ import Signup from "../pages/Signup"
 import Start from "../pages/Start"
 import Drink from "../pages/Drink"
 import Travel from "../pages/Travel"
+import Login from "../pages/Login"
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/main" element={<Main />} />
       <Route path="/drink" element={<Drink />} />
       <Route path="/travel" element={<Travel />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   )
 }
