@@ -78,6 +78,22 @@ const fontstyles = {
         font-weight: 400;
         line-height: normal;
   `,
+
+  paragraphKor: `
+        font-family: "SpoqaHanSansNeo", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+  `,
+
+  paragraphEng: `
+        font-family: "GOTHAM", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+  `,
 }
 const colors = {
   white: "#ffffff",
