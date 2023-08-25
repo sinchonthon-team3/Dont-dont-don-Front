@@ -67,6 +67,7 @@ const colors = {
   blue: "#0045FF",
   black: "#102311",
   gray: "#DDDDDD",
+  gray40per: "rgba(221, 221, 221, 0.4)",
 }
 
 const theme = {
