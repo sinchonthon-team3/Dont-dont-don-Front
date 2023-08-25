@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 import theme from "../styles/theme"
-import { useRecoilState } from "recoil"
+import { useRecoilState, useRecoilValue } from "recoil"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -17,6 +17,8 @@ import participants from "../store/atom/participants"
 import totalAmount from "../store/atom/totalAmount"
 
 import EachRandomAmount from "../components/each/EachRandomAmount"
+import randomResult from "../store/atom/randomresult"
+import { useState } from "react"
 
 ChartJS.register(CategoryScale, LinearScale, Tooltip, Legend, BarController, BarElement, Filler)
 
@@ -33,6 +35,19 @@ export const options = {
 function RandomDetail() {
   const [participant, setParticipant] = useRecoilState(participants)
   const [total, setTotal] = useRecoilState(totalAmount)
+
+  const getRandomResult = useRecoilValue(randomResult)
+
+  const keys = Object.keys(getRandomResult)
+
+  const list = []
+
+  for (let i = 1; i < keys.length; i++) {
+    const key = keys[i]
+    const value = getRandomResult[key]
+
+    console.log(key, value)
+  }
 
   const labels = [...participant] //x축 기준
 
@@ -58,7 +73,7 @@ function RandomDetail() {
         <TitleEng>DON</TitleEng>
       </Title>
       <HeadlineContainer>
-        <Headline>N분의1 정산시 금액: {total / participant.length}원</Headline>
+        <Headline>N분의1 정산시 금액: {getRandomResult.normal}원</Headline>
       </HeadlineContainer>
       <ChartContainer>
         <Bar options={options} data={data} width="300" height="300" />
@@ -69,7 +84,6 @@ function RandomDetail() {
             <DetailLine key={idx}>
               <DetailText>{item}</DetailText>
               <DetailText>{Math.floor((data.datasets[0].data[idx] / total) * 100)}%</DetailText>
-              {/* <DetailText>{totalAmount}%</DetailText> */}
               <DetailText>{data.datasets[0].data[idx]}원</DetailText>
             </DetailLine>
           )

@@ -10,6 +10,7 @@ function Signup() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm()
 
@@ -17,8 +18,11 @@ function Signup() {
 
   const onSubmit = async data => {
     try {
-      const response = await request("post", "/api/signup", { data })
-      console.log(response)
+      await request("post", "/random1/register/", {
+        username: data.id,
+        password: data.password,
+        nickname: data.nickname,
+      })
 
       navigate("/login")
     } catch (error) {
@@ -76,7 +80,7 @@ function Signup() {
           errors={errors.checkpassword}
           pattern={RegEx.password.pattern}
           errorMessage={RegEx.password.errorMessage}
-          checkPassword={true}
+          checkPassword={() => getValues("password")}
         />
         <TOS>
           <Checkbox type="checkbox" required />

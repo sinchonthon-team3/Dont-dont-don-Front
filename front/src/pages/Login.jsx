@@ -15,10 +15,9 @@ function Login() {
 
   const onLogin = async () => {
     try {
-      const response = await request("post", "/api/login", { id, pw })
+      const response = await request("post", "/random1/login/", { username: id, password: pw })
 
       setUserInfo({
-        nickname: response.nickname,
         access: response.access,
       })
 
