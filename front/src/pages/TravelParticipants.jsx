@@ -33,7 +33,7 @@ function TravelParticipants() {
   return (
     <Container>
       <Title>
-        <TitleKor>술자리</TitleKor>
+        <TitleKor>여행</TitleKor>
         &nbsp;
         <TitleEng>DON</TitleEng>
       </Title>
