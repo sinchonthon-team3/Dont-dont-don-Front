@@ -87,7 +87,8 @@ const MobileContainer = styled.div`
 
 const FirstLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 136.096px;
   color: #0045ff;
   animation: ${move} 1s forwards;
@@ -98,7 +99,8 @@ const FirstLogo = styled.div`
 
 const SecondLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 39.652px;
   color: #0045ff;
   animation: ${appear} 1s forwards;
@@ -109,7 +111,8 @@ const SecondLogo = styled.div`
 
 const ThirdLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 136.096px;
   color: #0045ff;
   animation: ${appear} 1s forwards;
@@ -120,7 +123,8 @@ const ThirdLogo = styled.div`
 
 const FourthLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 39.652px;
   color: #0045ff;
   animation: ${appear} 1s forwards;
@@ -131,7 +135,8 @@ const FourthLogo = styled.div`
 
 const FifthLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 136.096px;
   color: #0045ff;
   animation: ${appear} 1s forwards;
@@ -142,7 +147,8 @@ const FifthLogo = styled.div`
 
 const SixthLogo = styled.div`
   display: ${props => (props.view ? "block" : "none")};
-  font-family: "GOTHAM_BOLD", sans-serif;
+  font-family: "GOTHAM", sans-serif;
+  font-weight: 700;
   font-size: 39.652px;
   color: #0045ff;
   animation: ${appear} 1s forwards;
