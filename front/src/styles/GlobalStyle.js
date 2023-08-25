@@ -12,42 +12,42 @@ const GlobalStyle = createGlobalStyle`
     ${reset}
 
     @font-face {
-        font-family: 'GOTHAM_BOOK';
+        font-family: 'GOTHAM';
         src: local('GOTHAM_BOOK'),
         url(${GOTHAM_BOOK}) format('woff2');
         font-weight: 400;
     }
 
     @font-face {
-        font-family: 'GOTHAM_MEDIUM';
+        font-family: 'GOTHAM';
         src: local('GOTHAM_MEDIUM'),
         url(${GOTHAM_MEDIUM}) format('woff2');
         font-weight: 500;
     }
     
     @font-face {
-        font-family: 'GOTHAM_BOLD';
+        font-family: 'GOTHAM';
         src: local('GOTHAM_BOLD'),
         url(${GOTHAM_BOLD}) format('woff2');
         font-weight: 700;
     }
 
     @font-face {
-        font-family: 'SpoqaHanSansNeo_Regular';
+        font-family: 'SpoqaHanSansNeo';
         src: local('SpoqaHanSansNeo_Regular'),
         url(${SpoqaHanSansNeo_Regular}) format('woff2');
         font-weight: 400;
     }
 
     @font-face {
-        font-family: 'SpoqaHanSansNeo_Medium';
+        font-family: 'SpoqaHanSansNeo';
         src: local('SpoqaHanSansNeo_Medium'),
         url(${SpoqaHanSansNeo_Medium}) format('woff2');
         font-weight: 500;
     }
 
     @font-face {
-        font-family: 'SpoqaHanSansNeo_Bold';
+        font-family: 'SpoqaHanSansNeo';
         src: local('SpoqaHanSansNeo_Bold'),
         url(${SpoqaHanSansNeo_Bold}) format('woff2');
         font-weight: 700;
