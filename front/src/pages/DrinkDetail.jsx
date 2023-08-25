@@ -2,17 +2,25 @@ import { styled } from "styled-components"
 import theme from "../styles/theme"
 import EachDetail from "../components/each/EachDetail"
 import { drinkAddition } from "./../constants/addition"
-import { useRecoilState, useRecoilValue } from "recoil"
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import drinkDetail from "../store/atom/drinkdetail"
 import { useEffect } from "react"
 import participants from "../store/atom/participants"
 import totalAmount from "./../store/atom/totalAmount"
 import { request } from "../util/axios"
+import user from "../store/atom/user"
+import { useNavigate } from "react-router-dom"
+import drinkResult from "../store/atom/drinkresult"
 
 function DrinkDetail() {
   const [drinkDetails, setDrinkDetails] = useRecoilState(drinkDetail)
   const getParticipants = useRecoilValue(participants)
   const getTotalAmount = useRecoilValue(totalAmount)
+
+  const userinfo = useRecoilValue(user)
+  const setTravelResult = useSetRecoilState(drinkResult)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     setDrinkDetails(
@@ -48,8 +56,11 @@ function DrinkDetail() {
     }
 
     try {
-      const response = await request("post", "/api/don", body)
-      console.log(response)
+      const response = await request("post", "/api/don", body, {
+        Authorization: `Bearer ${userinfo.access}`,
+      })
+      setTravelResult(response)
+      navigate("/drink/result")
     } catch (error) {
       console.log(error)
     }

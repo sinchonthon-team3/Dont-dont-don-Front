@@ -3,16 +3,23 @@ import { styled } from "styled-components"
 import theme from "../styles/theme"
 import EachDetail from "../components/each/EachDetail"
 import { travelAddition } from "../constants/addition"
-import { useRecoilState, useRecoilValue } from "recoil"
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import participants from "../store/atom/participants"
 import totalAmount from "../store/atom/totalAmount"
 import travelDetail from "../store/atom/traveldetail"
 import { request } from "../util/axios"
+import travelResult from "../store/atom/travelresult"
+import { useNavigate } from "react-router-dom"
+import user from "../store/atom/user"
 
 function TravelDetail() {
   const [travelDetails, setTravelDetails] = useRecoilState(travelDetail)
   const getParticipants = useRecoilValue(participants)
   const getTotalAmount = useRecoilValue(totalAmount)
+  const setTravelResult = useSetRecoilState(travelResult)
+
+  const userinfo = useRecoilValue(user)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setTravelDetails(
@@ -48,8 +55,11 @@ function TravelDetail() {
     }
 
     try {
-      const response = await request("post", "/api/don", body)
-      console.log(response)
+      const response = await request("post", "/api/don", body, {
+        Authorization: `Bearer ${userinfo.access}`,
+      })
+      setTravelResult(response)
+      navigate("/travel/result")
     } catch (error) {
       console.log(error)
     }
