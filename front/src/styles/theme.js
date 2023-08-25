@@ -9,7 +9,7 @@ const fontstyles = {
 
   labelEng: `
       font-family: "GOTHAM", sans-serif;
-      font-size: 24px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
@@ -94,6 +94,14 @@ const fontstyles = {
         font-weight: 400;
         line-height: normal;
   `,
+
+  viewDonTitleKor: `
+        font-family: "SpoqaHanSansNeo", sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+  `,
 }
 const colors = {
   white: "#ffffff",
@@ -103,6 +111,9 @@ const colors = {
   gray: "#DDDDDD",
   gray40per: "rgba(221, 221, 221, 0.4)",
   gray60per: "rgba(221, 221, 221, 0.6)",
+  gray80per: "rgba(221, 221, 221, 0.8)",
+  gray50per: "rgba(221, 221, 221, 0.5)",
+  gray20per: "rgba(221, 221, 221, 0.2)",
 }
 
 const theme = {

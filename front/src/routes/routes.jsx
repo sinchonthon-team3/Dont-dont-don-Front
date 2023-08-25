@@ -9,6 +9,7 @@ import TravelDetail from "../pages/TravelDetail"
 import TravelParticipants from "../pages/TravelParticipants"
 import DrinkParticipants from "../pages/DrinkParticipants"
 import RandomParticipants from "../pages/RandomParticipants"
+import ViewDon from "../pages/ViewDon"
 import RandomDetail from "../pages/RandomDetail"
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/random/participants" element={<RandomParticipants />} />
       <Route path="/random/detail" element={<RandomDetail />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/view" element={<ViewDon />} />
     </Routes>
   )
 }
