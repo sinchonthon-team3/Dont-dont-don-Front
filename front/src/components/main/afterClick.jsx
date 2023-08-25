@@ -1,11 +1,8 @@
 import { styled } from "styled-components"
 import { ReactComponent as Image } from "../../asset/img/clickme.svg"
 import theme from "../../styles/theme"
-import { useRecoilValue } from "recoil"
-import user from "../../store/atom/user"
 
 function AfterClick() {
-  const userinfo = useRecoilValue(user)
   return (
     <ClickMe>
       <ImageContainer>
@@ -19,7 +16,7 @@ function AfterClick() {
         그동안의
         <DonText>{` DON`}</DonText>
       </ViewDonButton>
-      <Nickname>반갑습니다. {userinfo.nickname}님</Nickname>
+      <Nickname>반갑습니다. 한진규님</Nickname>
     </ClickMe>
   )
 }

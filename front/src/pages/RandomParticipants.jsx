@@ -1,7 +1,6 @@
 import { styled } from "styled-components"
 import theme from "../styles/theme"
-import { Link } from "react-router-dom"
-import { useRecoilState } from "recoil"
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import { useState } from "react"
 
 import participants from "../store/atom/participants"
@@ -10,15 +9,24 @@ import totalAmount from "../store/atom/totalAmount"
 import add_icon from "../asset/img/add_icon.png"
 
 import EachInput from "../components/each/EachInput"
+import { useNavigate } from "react-router-dom"
+import { request } from "../util/axios"
+import user from "../store/atom/user"
+import randomResult from "./../store/atom/randomresult"
 
 function RandomParticipants() {
   const [participant, setParticipant] = useRecoilState(participants)
   const [total, setTotal] = useRecoilState(totalAmount)
   const [count, setCount] = useState(4)
 
+  const userinfo = useRecoilValue(user)
+  const setRandomResult = useSetRecoilState(randomResult)
+
+  const navigate = useNavigate()
+
   const participantsArr = []
 
-  function registerInfo() {
+  const registerInfo = async () => {
     const inputs = document.getElementsByClassName("name")
     const money = document.getElementsByClassName("money")
 
@@ -28,6 +36,24 @@ function RandomParticipants() {
 
     setParticipant(participantsArr)
     setTotal(money[0].value)
+
+    try {
+      const response = await request(
+        "post",
+        "/random1/get-random-money/",
+        {
+          participants: participant,
+          total_cost: Number(total),
+        },
+        {
+          Authorization: `Bearer ${userinfo.access}`,
+        },
+      )
+      setRandomResult(response)
+      navigate("/random/detail")
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   return (
@@ -52,11 +78,9 @@ function RandomParticipants() {
       </InputContainer>
       <ButtonContainer>
         <DonButton onClick={registerInfo}>
-          <Link to="/random/detail" style={{ textDecoration: "none", color: `${theme.colors.black}` }}>
-            <DonButtonEn>DON</DonButtonEn>
-            &nbsp;
-            <DonButtonKr>하러가기</DonButtonKr>
-          </Link>
+          <DonButtonEn>DON</DonButtonEn>
+          &nbsp;
+          <DonButtonKr>하러가기</DonButtonKr>
         </DonButton>
       </ButtonContainer>
     </Container>
