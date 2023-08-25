@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import styled, { keyframes } from "styled-components"
 
@@ -9,49 +9,28 @@ function Start() {
   const [fifthSixth, setFifthSixth] = useState(false)
 
   const navigate = useNavigate()
+
   useEffect(() => {
     setTimeout(() => {
       setFirst(true)
     }, 1500)
 
-    return () => {
-      clearTimeout()
-    }
-  }, [])
-
-  useEffect(() => {
     setTimeout(() => {
       setSecond(true)
     }, 2500)
 
-    return () => {
-      clearTimeout()
-    }
-  }, [])
-
-  useEffect(() => {
     setTimeout(() => {
       setThirdFourth(true)
     }, 3500)
 
-    return () => {
-      clearTimeout()
-    }
-  }, [])
-
-  useEffect(() => {
     setTimeout(() => {
       setFifthSixth(true)
     }, 4500)
-
-    return () => {
-      clearTimeout()
-    }
   }, [])
 
-  //   setTimeout(() => {
-  //     navigate("/")
-  //   }, 7000)
+  setTimeout(() => {
+    navigate("/login")
+  }, 7000)
 
   return (
     <Container>
@@ -115,7 +94,6 @@ const FirstLogo = styled.div`
   position: absolute;
   bottom: 271.7px;
   left: 76px;
-  /* -webkit-animation-fill-mode: forwards; */
 `
 
 const SecondLogo = styled.div`
