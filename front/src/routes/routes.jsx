@@ -7,6 +7,7 @@ import Drink from "../pages/Drink"
 import Travel from "../pages/Travel"
 import Login from "../pages/Login"
 import TravelParticipants from "../pages/TravelParticipants"
+import DrinkParticipants from "../pages/DrinkParticipants"
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/" element={<Start />} />
       <Route path="/main" element={<Main />} />
       <Route path="/drink" element={<Drink />} />
+      <Route path="/drink/participants" element={<DrinkParticipants />} />
       <Route path="/travel" element={<Travel />} />
       <Route path="/travel/participants" element={<TravelParticipants />} />
       <Route path="/login" element={<Login />} />
