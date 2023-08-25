@@ -51,6 +51,7 @@ function RandomDetail() {
 
   return (
     <Container>
+      <Circle />
       <Title>
         <TitleKor>랜덤</TitleKor>
         &nbsp;
@@ -144,4 +145,19 @@ const DetailLine = styled.div`
 const DetailText = styled.div`
   ${theme.fontstyles.labelKor}
   color: #102311;
+`
+
+const Circle = styled.div`
+  position: fixed;
+  z-index: -1;
+
+  top: 7%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 337px;
+  height: 337px;
+  border-radius: 50%;
+  background-color: rgba(0, 69, 255, 0.2);
 `
